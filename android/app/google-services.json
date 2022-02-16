@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "803432989142",
+    "project_id": "zgshop-ed60d",
+    "storage_bucket": "zgshop-ed60d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:803432989142:android:7780f09d30cb1cf45da477",
+        "android_client_info": {
+          "package_name": "com.junglesoft.zgshop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "803432989142-lubjp7081ne023uqjdrlaj90j0i3dg8o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDss1P38bqlfefjRrpvcwNLJf2FQFIF070"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "803432989142-lubjp7081ne023uqjdrlaj90j0i3dg8o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
