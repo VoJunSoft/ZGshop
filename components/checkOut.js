@@ -132,9 +132,8 @@ const checkOut  = (props) => {
             <View style={{
                 flex:1,
                 flexDirection:'column',
-                justifyContent: 'flex-start',
+                justifyContent: 'center',
                 alignItems:'center',
-                marginTop:-100
              }}>
                 <Text style={[CSS.title, {fontSize:90}]}> ✓ </Text>
                 <Text style={[CSS.title, {color:'green'}]}>ההזמנה התקבלה בהצלחה</Text>

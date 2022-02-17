@@ -44,14 +44,14 @@ const homeAlpha = ({navigation}) => {
    const [userInfo, setUserInfo] = useState()
 
    useEffect( () => {
-         const unsubscribe = navigation.addListener('focus', () => {
+        // const unsubscribe = navigation.addListener('focus', () => {
             //AsyncStorage.removeItem('cartItems')
             //AsyncStorage.removeItem('userInfo')
             //AsyncStorage.removeItem('adminKey')
             getUserData()
             fillProductsState()
-        })
-         return () => unsubscribe()
+        // })
+        // return () => unsubscribe()
     },[])
 
     //userInfo State

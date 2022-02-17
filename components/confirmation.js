@@ -30,24 +30,24 @@ const [isTransactionEnded, setIsTransactionEnded] = useState(false)
 
     const handlePyament = () =>{
         const subscriber = firestore()
-        .collection('orders')
-        .add(props.order)
-        .then(() => {
-            //clear async storage cartItems
-            AsyncStorage.removeItem('cartItems')
+            .collection('orders')
+            .add(props.order)
+            .then(() => {
+                //clear async storage cartItems
+                AsyncStorage.removeItem('cartItems')
 
-            //remove payment confirmation button and payment component after confirming transaction
-            setIsTransactionEnded(true)
+                //remove payment confirmation button and payment component after confirming transaction
+                setIsTransactionEnded(true)
 
-            //show success or error msg on checkout.js with close button
-            props.setPaymentConfirmed(true)
+                //show success or error msg on checkout.js with close button
+                props.setPaymentConfirmed(true)
 
-            //setCartItems to [] from checkOut.js on closing checkout overlay
-        })
-        .catch((e)=>{
-            //show success msg on checkout.js with close button
-            props.setPaymentConfirmed(false)
-        })
+                //setCartItems to [] from checkOut.js on closing checkout overlay
+            })
+            .catch((e)=>{
+                //show success msg on checkout.js with close button
+                props.setPaymentConfirmed(false)
+            })
         return () => subscriber();
     }
 
