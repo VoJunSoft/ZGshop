@@ -23,7 +23,7 @@ const colorIdentifier = () => {
 }
 
 return (
-        <ImageBackground style={styles.container} source={{uri: props.productInfo.img[Math.floor(Math.random() * props.productInfo.img.length)]}}>
+        <ImageBackground style={styles.container} source={{uri: props.productInfo.img[0]}}>
         <DropShadow style={styles.dropShadow}>
           <View style={styles.infoBlock}>
               <Text style={styles.title}>₪{props.productInfo.price}</Text>
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
       height:300,
       borderRadius:10,
       margin: 10,
-      marginLeft:5,
+      marginLeft:7,
       marginTop:15,
       marginBottom:20,
       flexDirection:'column',

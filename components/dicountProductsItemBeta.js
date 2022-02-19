@@ -41,7 +41,7 @@ return (
                     size={30}
                 />  
             </View>
-            <Image style={styles.img} source={{uri: props.productInfo.img[ Math.floor(Math.random() * props.productInfo.img.length)]}} />
+            <Image style={styles.img} source={{uri: props.productInfo.img[0]}} />
         </View> 
         </DropShadow>   
     </SafeAreaView>
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
 
     block:{
       width:Dimensions.get('window').width/2.5,
-      marginLeft: 4,
+      marginLeft: 3,
       marginTop:2,
       marginBottom:12,
     },
@@ -75,12 +75,12 @@ const styles = StyleSheet.create({
     title: {
       fontFamily:'GLA',
       fontSize: 17,
-      color:'#fac300',
+      color:'white',
     },
     body: {
         fontFamily:'GLA',
         fontSize: 15,
-        color:'#fac300',
+        color:'white',
         marginTop:2
     },
     imgBlock: {

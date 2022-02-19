@@ -151,10 +151,10 @@ const homeAlpha = ({navigation}) => {
     }
 
     //TODO limit map function in case productList is large
-    const getRandomImage = () => {
-        let randomImages = productsList.map(record => record.img[Math.floor(Math.random() * record.img.length)])
-        return randomImages[Math.floor(Math.random() * randomImages.length)]
-    }
+    // const getRandomImage = () => {
+    //     let randomImages = productsList.map(record => record.img[Math.floor(Math.random() * record.img.length)])
+    //     return randomImages[Math.floor(Math.random() * randomImages.length)]
+    // }
 
     const renderScreenComponents = (screenName) => {
         switch(screenName){

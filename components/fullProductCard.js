@@ -48,7 +48,6 @@ const fullProductCard = (props) => {
                    AsyncStorage.setItem('cartItems', JSON.stringify(newCartState))
               }else{
                   let newCartState= [...JSON.parse(value), data]
-                  console.log(newCartState)
                   AsyncStorage.setItem('cartItems', JSON.stringify(newCartState))
               }
       } catch(e) {
@@ -159,7 +158,7 @@ const fullProductCard = (props) => {
                           size={50}
                           style={styles.cartIcon}
                           />
-                        <Text style={{fontSize:18, color:'#fac300', fontFamily:'ganclm_bold-webfont'}}> הוסף לעגלה </Text>
+                        <Text style={{fontSize:18, color:'#fac300', fontFamily:'ganclm_bold-webfont'}}> הוסף לסל </Text>
                   </TouchableOpacity>    
                   :
                   <Text style={{

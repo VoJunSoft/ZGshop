@@ -26,7 +26,8 @@ const profile = (props) => {
                                                         userInfo.address === '' ? true : false)
     const saveUserInfo = () => {
         //TODO phone number and email verifications
-        if(userInfo.name.length >= 5 && userInfo.phone.length >= 10 && userInfo.email.length >= 10 && userInfo.address.length >= 12){
+        var re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+        if(userInfo.name.length >= 5 && re.test(userInfo.phone) && userInfo.email.length >= 10 && userInfo.address.length >= 12){
             props.storeUserData(userInfo)
             props.getUserData()
             setIsEditable(false)
@@ -38,7 +39,8 @@ const profile = (props) => {
 
     const confirmUserInfo = () => {
         //TODO phone number and email verifications
-        if(userInfo.name.length >= 5 && userInfo.phone.length >= 10 && userInfo.email.length >= 10 && userInfo.address.length >= 12){
+        var re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+        if(userInfo.name.length >= 5 && re.test(userInfo.phone) && userInfo.email.length >= 10 && userInfo.address.length >= 12){
             props.storeUserData(userInfo)
             props.getUserData()
             
@@ -71,24 +73,28 @@ const profile = (props) => {
                     placeholderTextColor="white"
                     placeholder="שם מלאה"
                     underlineColorAndroid='transparent'
+                    autoCompleteType='name'
                     //autoFocus
                     />
                     <Text style={CSS.body}>שם מלאה</Text>
                 </View>
+                <Text style={{paddingLeft:7, fontSize: 10, color: userInfo.name.length < 5  ? 'red': 'green'}}>{userInfo.name.length}/25</Text>
                 <View style={CSS.blockEdit}>
                     <TextInput
                     value={userInfo.phone}
                     style={[CSS.postInput]}
                     onChangeText={text=> setUserInfo({...userInfo, phone: text})}
-                    maxLength={12}
+                    maxLength={10}
                     selectionColor="orange"
                     placeholderTextColor="white"
                     placeholder="מס טלפון"
                     underlineColorAndroid='transparent'
                     keyboardType='numeric'
+                    autoCompleteType='tel'
                     />
                     <Text style={CSS.body}>מס טלפון</Text>
                 </View>
+                <Text style={{paddingLeft:7, fontSize: 10, color: userInfo.phone.length < 10  ? 'red': 'green'}}>{userInfo.phone.length}/10</Text>
                 <View style={CSS.blockEdit}>
                     <TextInput
                     value={userInfo.email}
@@ -99,9 +105,11 @@ const profile = (props) => {
                     placeholderTextColor="white"
                     placeholder="אימייל"
                     underlineColorAndroid='transparent'
+                    autoCompleteType='email'
                     />
                     <Text style={CSS.body}>אימייל</Text>
                 </View>
+                {/* <Text style={{paddingLeft:7, fontSize: 10, color: userInfo.email.length < 10  ? 'red': 'green'}}>{userInfo.email.length}/30</Text> */}
                 <View style={CSS.blockEdit}>
                     <TextInput
                     value={userInfo.address}
@@ -112,11 +120,12 @@ const profile = (props) => {
                     placeholderTextColor="white"
                     placeholder="כתובת"
                     underlineColorAndroid='transparent'
-                    numberOfLines={4}
+                    numberOfLines={3}
                     multiline
                     />
                     <Text style={CSS.body}>כתובת</Text>
                 </View>
+                <Text style={{paddingLeft:7, fontSize: 10, color: userInfo.address.length < 12  ? 'red': 'green'}}>{userInfo.address.length}/70</Text>
             </View>
             </DropShadow>
            :
@@ -223,7 +232,6 @@ const profile = (props) => {
 
 const CSS = StyleSheet.create({
     container:{
-        flex:-1,
         width:'100%',
         marginTop:15,
     },
@@ -231,9 +239,9 @@ const CSS = StyleSheet.create({
         alignSelf:'center',
         width:'95%',
         backgroundColor:'rgba(255,255,255,0.8)',
-        marginTop:20,
-        paddingTop:10,
-        paddingBottom:10,
+        marginTop:10,
+        // paddingTop:10,
+        // paddingBottom:10,
         borderBottomWidth:5,
         borderColor:'#34262f',
         borderRadius:5

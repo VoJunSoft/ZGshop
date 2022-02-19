@@ -120,16 +120,16 @@ const cart = (props) => {
             <>
              <DropShadow  style={{
                 shadowColor: 'rgba(0,0,0,0.5)',
-                shadowOffset: {width: -5, height: 5},
+                shadowOffset: {width: 0, height: 0},
                 shadowOpacity: 0.5,
-                shadowRadius: 2,
+                shadowRadius: 2
                 }} >
                     <View style={[CSS.header]}>
-                        <Text style={[CSS.title, {color:'#fac300'}]}>מחק</Text>
-                        <Text style={[CSS.title, {color:'#fac300',width:'25%', borderLeftWidth:0, borderLeftColor:'#fac300'}]}>מחיר יח׳</Text>
-                        <Text style={[CSS.title, {color:'#fac300',width:'10%', borderLeftWidth:0, borderLeftColor:'#fac300'}]}>כמ</Text>
-                        <Text style={[CSS.title, {color:'#fac300',width:'25%', borderLeftWidth:0, borderLeftColor:'#fac300'}]}>פרטים</Text>
-                        <Text style={[CSS.title,{color:'#fac300',width:'30%', borderLeftWidth:0, borderLeftColor:'#fac300'}]}>שם מוצר</Text>
+                        <Text style={[CSS.title, {color:'#34262f'}]}>מחק</Text>
+                        <Text style={[CSS.title, {color:'#34262f',width:'25%', borderLeftWidth:0, borderLeftColor:'#fac300'}]}>מחיר יח׳</Text>
+                        <Text style={[CSS.title, {color:'#34262f',width:'10%', borderLeftWidth:0, borderLeftColor:'#fac300'}]}>כמ</Text>
+                        <Text style={[CSS.title, {color:'#34262f',width:'25%', borderLeftWidth:0, borderLeftColor:'#fac300'}]}>פרטים</Text>
+                        <Text style={[CSS.title,{color:'#34262f',width:'30%', borderLeftWidth:0, borderLeftColor:'#fac300'}]}>שם מוצר</Text>
                     </View>
             </DropShadow>
             {renderItems()}
@@ -180,13 +180,15 @@ const CSS =StyleSheet.create({
         justifyContent:'space-between',
         alignItems:'center',
         alignSelf:'center',
-        marginTop:25,
-        marginBottom:7,
+        marginTop:20,
+        marginBottom:5,
         paddingTop:15,
         paddingBottom:15,
         paddingLeft:5,
-        backgroundColor:'#34262f',
+        backgroundColor:'rgba(255,255,255,1)',
         borderRadius:3,
+        borderBottomWidth: 2,
+        borderBottomColor:'34262f'
     },
     cart:{
         width:'97%',

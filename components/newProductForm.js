@@ -400,6 +400,7 @@ const newProductForm = (props) => {
                 <Picker.Item style={{fontSize:15, textDecorationLine:'underline'}} label="מין" value="" />
                 <Picker.Item label="נשים" value="נשים" />
                 <Picker.Item label="גברים" value="גברים" />
+                <Picker.Item label="ילדים" value="ילדים" />
                 <Picker.Item label="יוניסקס" value="יוניסקס" />
             </Picker>
         </View>

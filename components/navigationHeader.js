@@ -4,7 +4,8 @@ import {
     View,
     StyleSheet,
     TextInput,
-    TouchableOpacity
+    TouchableOpacity,
+    Dimensions
 } from 'react-native'
 import Button from '../elements/button'
 import DropShadow from "react-native-drop-shadow";
@@ -15,20 +16,22 @@ import { Overlay } from 'react-native-elements';
 
 const navigationHeader = (props) => {
     const [subMenu, setSubMenu] = useState(false)
-    
+
     return (
         <SafeAreaView>
         <DropShadow style={CSS.container}>
             <Button 
                 iconName='home'
-                iconSize={50}
+                iconSize={45}
+                //title='מוצרים'
                 containerStyle={{
-                    backgroundColor:'rgba(255,255,255,0.8)',
+                    //backgroundColor:'rgba(255,255,255,0.8)',
+                    backgroundColor:'#34262f',
                     width:'20%',
-                    borderRadius:3
+                    borderRadius:5,
                 }}
                 textStyle={{
-                    color:'#34262f',
+                    color:'#fac300',
                     fontSize:10
                 }}
                 onPress={()=>props.setScreenName('productsList')}/>
@@ -38,7 +41,7 @@ const navigationHeader = (props) => {
                     <TouchableOpacity onPress={() => props.handleSearch('')}>
                         <Text style={{
                             fontFamily:'Cairo-Bold',
-                            color:'#34262f',
+                            color:'#fac300',
                             fontSize:23,
                         }}> 
                         ⓧ
@@ -54,33 +57,34 @@ const navigationHeader = (props) => {
                     value={props.searchQuery}
                     onChangeText={queryText => props.handleSearch(queryText)}
                     placeholder="חיפוש"
-                    style={{width:'60%', color:'#34262f',marginLeft:5,marginRight:5}}
+                    style={{width:'65%', color:'white'}}
                     textAlign="right"
                     textAlignVertical="bottom"
-                    underlineColorAndroid='#34262f'
+                    underlineColorAndroid='white'
                     selectionColor='#FAC300'
-                    placeholderTextColor='#34262f'
+                    placeholderTextColor='white'
                 />
                  <Icon 
                     iconName='search' 
-                    size={35}
+                    size={40}
                 />
             </View>
             :
-            <View style={CSS.searchBox}>
+            <View style={CSS.searchBoxReplacement}>
                 <Text style={CSS.title}> {props.screenNameHebrew} </Text>
             </View>
             }
             <Button 
                 iconName='menu'
-                iconSize={50}
+                iconSize={45}
+                //title='תפריט'
                 containerStyle={{
-                    backgroundColor:'rgba(255,255,255,0.8)',
+                    backgroundColor:'#34262f',
                     width:'23%',
-                    borderRadius:3
+                    borderRadius:5
                 }}
                 textStyle={{
-                    color:'#FAC300',
+                    color:'#fac300',
                     fontSize:10
                 }}
                 onPress={() => setSubMenu(!subMenu)}
@@ -164,14 +168,17 @@ const navigationHeader = (props) => {
     }
 const CSS = StyleSheet.create({
     container:{
+        width:Dimensions.get('window').width-4,
         flexDirection: 'row',
         justifyContent:'space-between',
+        alignSelf:'center',
         alignItems:'center',
-        margin:2,
         shadowColor: 'rgba(0,0,0,0.5)',
         shadowOffset: {width: -5, height: 5},
         shadowOpacity: 0.5,
         shadowRadius: 2,
+        marginTop:2,
+        marginBottom:2
     },
     subContainer:{
         flexDirection: 'column',
@@ -200,17 +207,29 @@ const CSS = StyleSheet.create({
         flexDirection:'row',
         justifyContent:'center', 
         alignItems:'center',
-        height:'100%',
-        margin:3,
+        marginLeft:2,
+        marginRight:2,
         borderRadius:3,
-        backgroundColor:'rgba(255,255,255,0.8)',
-        padding:3
+        //backgroundColor:'rgba(255,255,255,0.8)',
+        backgroundColor:'#34262f',
+        height:'100%'
+      },
+      searchBoxReplacement: {
+        flex:1, 
+        flexDirection:'row',
+        justifyContent:'center', 
+        alignItems:'center',
+        marginLeft:2,
+        marginRight:2,
+        borderRadius:3,
+        backgroundColor:'#34262f',
+        height:'100%'
       },
       title: {
         //fontFamily:'ganclm_bold-webfont',
         fontFamily:'drugulinclm-bold-webfont',
         fontSize:30, 
-        color:'#34262f',
+        color:'white',
         padding:5,
       },
       overlay:{

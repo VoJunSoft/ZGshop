@@ -10,6 +10,7 @@ const profileHeader = () => {
                     borderRadius:10,
                     borderBottomLeftRadius:200,
                     borderBottomRightRadius:200,
+                    margin:2
                     }}>
                 <DropShadow style={CSS.dropShadow}>
                     <View style={{

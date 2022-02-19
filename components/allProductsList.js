@@ -68,6 +68,7 @@ const allProductsList = (props) => {
                 <Picker.Item label="מוצרים חדשים" value="מוצר חדש" />
                 <Picker.Item label="מוצרים במבצע" value="מוצר במבצע" />
                 <Picker.Item label="מוצרים להיטים" value="מוצר להיט" />
+                <Picker.Item label="ילדים" value="ילדים" />
                 <Picker.Item label="נשים" value="נשים" />
                 <Picker.Item label="גברים" value="גברים" />
                 <Picker.Item label="יוניסקס" value="יוניסקס" />
@@ -165,7 +166,7 @@ const CSS = StyleSheet.create({
     },
     dropShadow:{
         shadowColor: 'rgba(0,0,0,0.5)',
-        shadowOffset: {width: 0, height: 4},
+        shadowOffset: {width: -1, height: 1},
         shadowOpacity: 0.5,
         shadowRadius: 2,
     },

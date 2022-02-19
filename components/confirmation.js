@@ -91,10 +91,10 @@ const [isTransactionEnded, setIsTransactionEnded] = useState(false)
                             size={35}
                             style={{
                                 marginRight:10,
-                            }}
-                            />
+                            }} />
                         <Text style={{fontSize:20, color:'white', fontWeight:'bold', width:'30%'}}>Pay</Text> 
                     </TouchableOpacity> 
+                    <Text style={{color:'red', fontSize: 12}}>תשלום בכרטיס יהיה זמין בקרוב</Text>
                 </View>
                 :
                 null
