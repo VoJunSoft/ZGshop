@@ -27,14 +27,16 @@ const settings = (props) => {
     getData()
   }, [])
 
-  const getData = async () => {
+  const getData = () => {
     try {
-           const value = await AsyncStorage.getItem('AdminKey')
-           if(value !== null){
+           AsyncStorage.getItem('AdminKey')
+           .then(value => {
+              if(value !== null){
                 setIsOwner(true)
-            }else{
-                setIsOwner(false)
-            }
+              }else{
+                  setIsOwner(false)
+              }
+           })    
     } catch(e) {
       // error reading value
     }

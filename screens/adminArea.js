@@ -105,15 +105,16 @@ const adminArea = ({navigation}) => {
             })
             return () => subscriber();
       }
-
-      const getData = async () => {
+      const getData = () => {
         try {
-               const value = await AsyncStorage.getItem('AdminKey')
-               if(value !== null){
+               AsyncStorage.getItem('AdminKey')
+               .then(value => {
+                  if(value !== null){
                     setIsUserLoggedIn(true)
-                }else{
+                  }else{
                     setIsUserLoggedIn(false)
-                }
+                  }
+               })    
         } catch(e) {
           // error reading value
         }
@@ -175,11 +176,6 @@ const adminArea = ({navigation}) => {
         const filteredData = filter(productsList, user => {
           return contains(user, formattedQuery);
         })
-        //show "no results found" when search is empty
-        if(filteredData.length === 0)
-          setResultsFound(false)
-        else
-          setResultsFound(true)
     
         setProductsListCopy(filteredData);
         setSearchQuery(query)
