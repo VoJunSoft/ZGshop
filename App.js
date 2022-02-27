@@ -36,7 +36,6 @@ const App = () => {
 
   return (
     <NavigationContainer>
-    {/* <StatusBar barStyle = "dark-content" hidden = {false} backgroundColor = "#fac300"/> */}
       <Stack.Navigator initialRouteName="HomeAlpha">
         <Stack.Screen
           name="HomeAlpha"
@@ -49,10 +48,8 @@ const App = () => {
         name="AdminArea"
         component={AdminArea}
         options={{
-          headerShown: false ,
-          headerStyle: {
-            backgroundColor: '#6183B4',
-          }}}
+          headerShown: false 
+        }}
       />
       </Stack.Navigator>
   </NavigationContainer>

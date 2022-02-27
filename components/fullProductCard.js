@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { 
     Text, 
     View,
-    SafeAreaView,
     StyleSheet,
     Image,
     Dimensions, 
@@ -31,12 +30,15 @@ const fullProductCard = (props) => {
         quantity: 1
         })
 
+    //Add product to cart items
     const addToCard = () => {
       //ADD to card GLOBAL STATE and show in cart
       storeCartData(addToCardItem)
       console.log(addToCardItem)
       Alert.alert('המוצר נוסף לעגלת הקניות בהצלחה')
       props.toggleOverlay()
+
+
     }
 
     //store cart items 
@@ -146,32 +148,32 @@ const fullProductCard = (props) => {
             <Text style={styles.title}>כמות</Text>
           </View>
 
-            <View style={styles.infoBox}>
-                <Text style={styles.body}>{props.fullProductCardInfo.status}</Text>
-                <Text style={styles.body}>ל{props.fullProductCardInfo.gender}</Text>
-                <Text style={styles.body}>{props.fullProductCardInfo.information}</Text>
-            </View>  
-            {props.fullProductCardInfo.quantity === 'זמין' || props.fullProductCardInfo.quantity === ''? 
-                  <TouchableOpacity style={styles.addTocartBox} onPress={addToCard}>
-                      <Icon 
-                          iconName='cart' 
-                          size={50}
-                          style={styles.cartIcon}
-                          />
-                        <Text style={{fontSize:18, color:'#fac300', fontFamily:'ganclm_bold-webfont'}}> הוסף לסל </Text>
-                  </TouchableOpacity>    
-                  :
-                  <Text style={{
-                                fontSize:25, 
-                                color:'red', 
-                                fontFamily:'ganclm_bold-webfont',
-                                alignSelf:'center',
-                                marginTop:20,
-                                marginBottom:20
-                                }}>
-                      {props.fullProductCardInfo.quantity}
-                  </Text>
-              }
+          <View style={styles.infoBox}>
+              <Text style={styles.body}>{props.fullProductCardInfo.status}</Text>
+              <Text style={styles.body}>ל{props.fullProductCardInfo.gender}</Text>
+              <Text style={styles.body}>{props.fullProductCardInfo.information}</Text>
+          </View>  
+          {props.fullProductCardInfo.quantity === 'זמין' || props.fullProductCardInfo.quantity === ''? 
+                <TouchableOpacity style={styles.addTocartBox} onPress={addToCard}>
+                    <Icon 
+                        iconName='cart' 
+                        size={50}
+                        style={styles.cartIcon}
+                        />
+                      <Text style={{fontSize:18, color:'#fac300', fontFamily:'ganclm_bold-webfont'}}> הוסף לסל </Text>
+                </TouchableOpacity>    
+                :
+                <Text style={{
+                              fontSize:25, 
+                              color:'red', 
+                              fontFamily:'ganclm_bold-webfont',
+                              alignSelf:'center',
+                              marginTop:20,
+                              marginBottom:20
+                              }}>
+                    {props.fullProductCardInfo.quantity}
+                </Text>
+            }
     </ScrollView>
 )
 }

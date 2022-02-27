@@ -4,7 +4,8 @@ import {
     View,
     FlatList,
     TouchableOpacity,
-    StyleSheet 
+    StyleSheet,
+    Modal 
 } from 'react-native'
 import AllProductsItem from './allProductsItem'
 import DropShadow from "react-native-drop-shadow";
@@ -19,7 +20,6 @@ import { Overlay } from 'react-native-elements'
 const allProductsList = (props) => {
     const [allProducts, setAllProducts] = useState(props.allProducts)
 
-    const [resultsFound, setResultsFound] = useState()
     const [allProductsCopy, setAllProductsCopy] = useState([])
     //in headerList instead of passing props.handlesearch we can pass handlesearch in order 
     const handleSearch = (query) => {
@@ -27,11 +27,6 @@ const allProductsList = (props) => {
         const filteredData = filter(allProducts, user => {
           return contains(user, formattedQuery);
         })
-        //show "no results found" when search is empty
-        if(filteredData.length === 0)
-          setResultsFound(false)
-        else
-          setResultsFound(true)
     
         setAllProductsCopy(filteredData);
     }
@@ -139,7 +134,7 @@ const allProductsList = (props) => {
                     backgroundColor:'rgba(255,255,255,0.95)',
                 }}
             >
-            <FullProductCard fullProductCardInfo={fullProductCardInfo} toggleOverlay={toggleOverlay}/>
+            <FullProductCard fullProductCardInfo={fullProductCardInfo} toggleOverlay={toggleOverlay} />
         </Overlay>
         </>
 )
@@ -158,11 +153,16 @@ const CSS = StyleSheet.create({
         fontSize:18,
         fontFamily:'ganclm_bold-webfont',
         marginRight:0,
-        color:'#34262f',
         borderBottomLeftRadius:15,
         borderBottomRightRadius:15,
         borderBottomWidth:2,
         borderBottomColor:'#34262f'
+    },
+    modalHeader:{
+        color:'#34262f',
+        fontSize:20,
+        fontFamily:'ganclm_bold-webfont',
+        textAlign:'center'
     },
     dropShadow:{
         shadowColor: 'rgba(0,0,0,0.5)',
@@ -173,6 +173,26 @@ const CSS = StyleSheet.create({
     dropdown: {
         backgroundColor:'rgba(255,255,255,0.5)',
         width:'50%',
+    },
+    addedToCardMsg:{
+      width:300,
+      height:270,
+      backgroundColor:'white',
+      alignSelf:'center', 
+      justifyContent:'space-evenly',
+      alignItems:'center',
+      borderRadius:10,
+      borderWidth:3,
+      borderColor:'#34262f'
+    },
+    close: {
+        backgroundColor:'#34262f',
+        color:'white',
+        fontSize:20,
+        textAlign:'center',
+        width:200,
+        borderRadius:5,
+        padding:10
     }
 })
 export default allProductsList;

@@ -16,7 +16,6 @@ import Share from "react-native-share";
 import  auth  from '@react-native-firebase/auth';
 //import firestore from '@react-native-firebase/firestore';
 import Icon from '../elements/IconPurple/iconPurple';
-import Button from '../elements/button'
 
 const settings = (props) => {
   //tap 5 times to show login button

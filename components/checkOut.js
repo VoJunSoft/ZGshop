@@ -11,7 +11,6 @@ import Payment from '../components/payment'
 import Confirmation from '../components/confirmation'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Button from '../elements/button'
-import Icon from '../elements/IconPurple/iconPurple'
 
 const checkOut  = (props) => {
     //props.cartItems; array of objects; each object contains: productName, productId, gender, timestamp, img[], information, category, status, 
@@ -99,6 +98,9 @@ const checkOut  = (props) => {
                     title='פרטי תשלום'
                     iconName={screenName === 'confirmation' ? "goldStar" : 'whiteStar'}
                     iconSize={40}
+                    containerStyle={{
+
+                    }}
                     textStyle={{ 
                         fontFamily:'Abraham-Regular',
                         fontSize: 15, 

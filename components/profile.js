@@ -15,7 +15,7 @@ import ProfileHeader from './profileHeader'
 const profile = (props) => {
     const [userInfo, setUserInfo] = useState(props.userInfo)
     useEffect( () => {
-        //guaranty user have his userInfo key stored even before storing or changing his data in order to keey the same UID
+        //guaranty user have his userInfo key stored even before storing or changing his data in order to key the same UID
         props.storeUserData(props.userInfo)
         console.log(props.userInfo)
     },[])
@@ -223,7 +223,7 @@ const profile = (props) => {
                             fontSize: 30, 
                             color:'#fac300',
                         }}
-                        onPress={()=> confirmUserInfo() }
+                        onPress={()=>confirmUserInfo()}
                     /> 
                 </View> : null }
         </View>
@@ -280,6 +280,7 @@ const CSS = StyleSheet.create({
         fontSize: 20,
         textAlign: 'right',
         fontFamily:'drugulinclm-bold-webfont',
+        color:'#34262f',
       },
     dropShadow:{
         shadowColor: 'rgba(0,0,0,0.5)',

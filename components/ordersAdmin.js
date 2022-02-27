@@ -9,6 +9,7 @@ import {
 import Icon from '../elements/IconPurple/iconPurple'
 import firestore from '@react-native-firebase/firestore';
 import OrderCardAdmin from './orderCardAdmin'
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const ordersAdmin = (props) => {
     useEffect( () => {
@@ -34,14 +35,14 @@ const ordersAdmin = (props) => {
       }
 
     const [tabView, setTabView] = useState('התקבלה')
-       //filter newproducts from allproducts based on new
+    //filter orders from based on record.progress data
     const filterOrders = (progressData) => {
         return userOrders.filter(record => record.progress === progressData)
     }
 
     const $renderOrdersBottomTab = () => {
         return(
-            <View style={CSS.footer}>
+            <SafeAreaView style={CSS.footer}>
                 <TouchableOpacity onPress={()=> setTabView('התקבלה')}>
                     <Text style={[CSS.bodyText, {color: tabView === 'התקבלה' ? '#fac300' : 'white' }]}>התקבלו</Text>
                 </TouchableOpacity>
@@ -57,7 +58,7 @@ const ordersAdmin = (props) => {
                 <TouchableOpacity onPress={()=> setTabView('בוטלה')}>
                     <Text style={[CSS.bodyText, {color: tabView === 'בוטלה' ? '#fac300' : 'white' }]}>בוטלו</Text>
                 </TouchableOpacity>
-            </View>
+            </SafeAreaView>
         )
     }
 
@@ -75,15 +76,18 @@ const ordersAdmin = (props) => {
         )
     }
 
-    return (
-        userOrders.length === 0 ?
+    const $emptyOrdersList = () => {
+        return(
             <View style={CSS.cartBox}>
                 <Icon 
                     iconName="emptylist"
                     size={150}/>
-                <Text style={CSS.emptyCard}>ORDERS</Text>
+                <Text style={CSS.emptyCard}>הזמנות</Text>
             </View>
-            :
+        )
+    }
+
+    return (
             <>
             <FlatList 
                 showsVerticalScrollIndicator={false}
@@ -113,7 +117,6 @@ const CSS =StyleSheet.create({
         fontSize:20,
     },
     footer:{
-        flex: -1,
         height:'5%',
         width:'100%',
         backgroundColor:'#34262f',

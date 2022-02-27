@@ -41,7 +41,7 @@ const orders = (props) => {
                 <Icon 
                     iconName="emptylist"
                     size={150}/>
-                <Text style={CSS.emptyCard}>ORDERS</Text>
+                <Text style={CSS.emptyCard}>הזמנות</Text>
             </View>
             :
             <FlatList 

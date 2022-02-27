@@ -6,16 +6,13 @@ import { Text,
          Dimensions,
          TouchableOpacity,
         } from 'react-native'
-import Button from '../elements/button'
 import DropShadow from "react-native-drop-shadow";
-import Icon from '../elements/IconPurple/iconPurple';
 import Circle from '../elements/boxSizes'
 
 const entry = (props) => {
 
 return (
-    <View style={CSS.presentation}>
-        
+    <View style={CSS.presentation}>      
             <DropShadow style={[CSS.dropshadow, {width:'100%', justifyContent:'center', marginBottom:20}]}>
                 <View style={[CSS.cardBlock,{backgroundColor: '#34262f', borderBottomLeftRadius:90}]}>
                     <Image style={{height:140, width:'70%'}} source={require('../assets/gallary/header.png')} />
@@ -35,10 +32,8 @@ return (
             <DropShadow style={[CSS.dropshadow, {width:'90%'}]}>
             <TouchableOpacity onPress={() => props.setScreenName('productsList')}>
                 <View style={[CSS.cardBlock,{backgroundColor: '#34262f', borderTopLeftRadius:90, borderBottomLeftRadius:90}]}>
-                    {/* <Circle size={50} color='#fac300' /> */}
                     <Text style={CSS.loginTxt}>כניסה לחנות</Text>  
                     <Circle size={60} color='#fac300' borderWidth={1}/>
-                    {/* <Image style={CSS.img} source={require('../assets/gallary/logo.png')} /> */}
                 </View> 
             </TouchableOpacity>
             </DropShadow>   

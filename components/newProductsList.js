@@ -23,14 +23,13 @@ const newProductsList = (props) => {
             </SafeAreaView>
         )
     }   
-    //toggle visibility for full article
+    //toggle visibility for full product details
     const [visible, setVisible] = useState(false)
-    //full article details
+    //full product details
     const [fullProductCardInfo, setFullProductCardInfo] = useState({})
     const toggleOverlay = (article) => {
-        //pass toggleOverlay to fillArticle component
+        //pass toggleOverlay to FullProductCard component
         setFullProductCardInfo(article)
-
         setVisible(!visible)
     }
 
