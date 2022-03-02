@@ -1,14 +1,9 @@
 
 import React, { useState, useEffect } from 'react'
 import { Text, 
-         View, 
          ImageBackground,
          StyleSheet,
-         Image, 
-         ScrollView,
-         Dimensions,
-         TextInput,
-         KeyboardAvoidingView
+         ActivityIndicator
         } from 'react-native'
 import Profile from '../components/profile'
 import Cart from '../components/cart'
@@ -42,7 +37,7 @@ const homeAlpha = ({navigation}) => {
    //get products from database
    const [productsList, setProductsList] = useState([])
    const [userInfo, setUserInfo] = useState()
-
+   const [dataIsLoading, setDataIsLoading] = useState(true)
    useEffect( () => {
         // const unsubscribe = navigation.addListener('focus', () => {
             //AsyncStorage.removeItem('cartItems')
@@ -87,8 +82,8 @@ const homeAlpha = ({navigation}) => {
         }
     }
 
-    const fillProductsState = () => {
-    const subscriber = firestore()
+    const fillProductsState =  () => {
+    const subscriber =  firestore()
         .collection('products')
         .orderBy('timestamp', 'asc')
         .onSnapshot(querySnapshot => {
@@ -113,22 +108,17 @@ const homeAlpha = ({navigation}) => {
                 },  ...prevState
             ]})
         })
+        setDataIsLoading(false)
         })
-        return () => subscriber();
+        return () => subscriber()
   }
 
-    const [resultsFound, setResultsFound] = useState(true)
     const [productsListCopy, setProductsListCopy] = useState([])
     const handleSearch = (query) => {
         const formattedQuery = query.toLowerCase();
         const filteredData = filter(productsList, user => {
           return contains(user, formattedQuery);
         })
-        //show "no results found" when search is empty
-        if(filteredData.length === 0)
-          setResultsFound(false)
-        else
-          setResultsFound(true)
     
         setProductsListCopy(filteredData);
         setSearchQuery(query)
@@ -166,7 +156,8 @@ const homeAlpha = ({navigation}) => {
                         searchQuery={searchQuery}
                         handleSearch={handleSearch}
                         newProducts={filterNewProducts()}
-                        discountProducts={filterDiscountProducts()} />
+                        discountProducts={filterDiscountProducts()} 
+                        />
             case 'profile':
                 return <Profile 
                         userInfo={userInfo} 
@@ -192,8 +183,10 @@ const homeAlpha = ({navigation}) => {
                 screenNameHebrew={screenTitle[screenName]}
                 screenName={screenName}
                 /> : null }
-            {
-                renderScreenComponents(screenName)
+            { dataIsLoading ?
+                    <ActivityIndicator size={100} color='#34262f'/>
+                :
+                   renderScreenComponents(screenName)
             }
         </ImageBackground>
     )

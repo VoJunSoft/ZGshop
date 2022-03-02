@@ -66,10 +66,9 @@ const adminArea = ({navigation}) => {
                 if(user){
                   fillProductsState()
                   getData()
-                  //setIsUserLoggedIn(true) instead of getData()    
-                  //setAdminEmail(user.email)
+                  //setIsUserLoggedIn(true) instead of getData()
                 }else{
-                    setIsUserLoggedIn(false)
+                  setIsUserLoggedIn(false)
                 }
               })
         })
@@ -139,8 +138,6 @@ const adminArea = ({navigation}) => {
                 //User account signed in
                 //get uid and pass it to store data
                 const user = userCreditentials.user
-                //get authenticated user email
-                //setAdminEmail(user.email)
 
                 //async storage for offline loggin
                 storeData(user.uid) 
